@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { PriceCell } from "../PriceCell";
-import { Question } from "../Question";
 import { Wrapper } from "./Board.styled";
 import { Categories } from "../Categories";
 
 const Board = () => {
-  const [showQuestion, setShowQuestion] = useState(false);
   const categories = [
     "Category A",
     "Category B",
@@ -16,8 +14,7 @@ const Board = () => {
   return (
     <Wrapper columns={categories.length}>
       <Categories categories={categories} />
-      <PriceCell onOpenQuestion={() => setShowQuestion(true)} />
-      {showQuestion && <Question onClose={() => setShowQuestion(false)} />}
+      <PriceCell />
       {/* <Prices /> */}
     </Wrapper>
   );
