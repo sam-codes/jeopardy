@@ -15,4 +15,5 @@ export const Text = styled.span`
   color: #fff;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
   font-size: 28px;
+  display: inline;
 `;
