@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Container, Text } from "./PriceCell.styled";
 import { Question } from "../Question";
 
-export const PriceCell = ({ price = "unknown" }) => {
+export const PriceCell = ({ price = "unknown", question = "unkown question" }) => {
   const [visited, setVisited] = useState(false);
   const [showQuestion, setShowQuestion] = useState(false);
 
@@ -20,7 +20,7 @@ export const PriceCell = ({ price = "unknown" }) => {
   return (
     <Container onClick={handleOpenQuestion}>
       {!visited && <Text className="price-text">{price}</Text>}
-      {showQuestion && <Question onClose={handleClose} />}
+      {showQuestion && <Question question={question} onClose={handleClose} />}
     </Container>
   );
 };
@@ -28,5 +28,4 @@ export const PriceCell = ({ price = "unknown" }) => {
 PriceCell.propTypes = {
   price: PropTypes.string,
   question: PropTypes.string,
-  onOpenQuestion: PropTypes.bool,
 };
