@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Container } from "./CategoryCell.styled";
-import "./category.css";
+import { Container, Text } from "./CategoryCell.styled";
 
 export const CategoryCell = ({ category = "category unknown" }) => {
   return (
     <Container>
-      <span className="category-text">{category}</span>
+      <Text>{category}</Text>
     </Container>
   );
 };

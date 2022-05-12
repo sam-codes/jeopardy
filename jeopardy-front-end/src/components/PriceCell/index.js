@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { Container, Text } from "./PriceCell.styled";
 import { Question } from "../Question";
-import "./price.css";
 
 export const PriceCell = ({ price = "unknown" }) => {
   const [visited, setVisited] = useState(false);
@@ -18,14 +18,15 @@ export const PriceCell = ({ price = "unknown" }) => {
   };
 
   return (
-    <div className="price" onClick={handleOpenQuestion}>
-      {!visited && <span className="price-text">{price}</span>}
+    <Container onClick={handleOpenQuestion}>
+      {!visited && <Text className="price-text">{price}</Text>}
       {showQuestion && <Question onClose={handleClose} />}
-    </div>
+    </Container>
   );
 };
 
 PriceCell.propTypes = {
   price: PropTypes.string,
+  question: PropTypes.string,
   onOpenQuestion: PropTypes.bool,
 };
