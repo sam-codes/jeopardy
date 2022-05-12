@@ -8,7 +8,6 @@ import { getCategories } from "../API";
 
 const Board = ({ gameId }) => {
   const [categories, setCategories] = useState([]);
-
   useEffect(() => {
     getCategories(gameId).then((data) => setCategories(data));
   }, []);

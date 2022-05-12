@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import { setSpreadsheet } from "../API";
 import {
   Container,
   SpreadsheetInput,
@@ -10,13 +10,13 @@ import {
   Title,
 } from "./Spreadsheet.styled";
 
-const SpreadsheetForm = (changeGameId) => {
+const SpreadsheetForm = ({ changeGameId }) => {
   let navigate = useNavigate();
   const [spreadsheetUrl, setSpreadsheetUrl] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    var ret = "data-123".replace("data-", "");
-    setSpreadsheet(spreadsheetUrl).then((data) => changeGameId(data));
+    changeGameId(/^.*spreadsheets\/d\/(.*?)\/.*$/i.exec(spreadsheetUrl)[1]);
     navigate("/board");
   };
 
@@ -33,6 +33,10 @@ const SpreadsheetForm = (changeGameId) => {
       </Form>
     </Container>
   );
+};
+
+SpreadsheetForm.propTypes = {
+  changeGameId: PropTypes.func,
 };
 
 export default SpreadsheetForm;
