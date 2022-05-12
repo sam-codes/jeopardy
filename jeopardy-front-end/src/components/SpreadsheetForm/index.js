@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { setSpreadsheet } from "../API";
 import {
   Container,
   SpreadsheetInput,
@@ -9,12 +10,13 @@ import {
   Title,
 } from "./Spreadsheet.styled";
 
-const SpreadsheetForm = () => {
+const SpreadsheetForm = (changeGameId) => {
   let navigate = useNavigate();
   const [spreadsheetUrl, setSpreadsheetUrl] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`Send the spreadsheet url (${spreadsheetUrl})`);
+    var ret = "data-123".replace("data-", "");
+    setSpreadsheet(spreadsheetUrl).then((data) => changeGameId(data));
     navigate("/board");
   };
 

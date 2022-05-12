@@ -2,9 +2,9 @@ import React from "react";
 import SpreadsheetForm from "../SpreadsheetForm";
 import { Container } from "./Home.styled";
 
-const Home = () => (
+const Home = (changeGameId) => (
   <Container>
-    <SpreadsheetForm />
+    <SpreadsheetForm changeGameId={changeGameId} />
   </Container>
 );
 
