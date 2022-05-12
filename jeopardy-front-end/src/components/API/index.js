@@ -1,5 +1,3 @@
-//import React from "react";
-
 export const getCategories = async (gameId) => {
   return fetch(`http://localhost/categories?gameId=${gameId}`, {
     method: "GET",
