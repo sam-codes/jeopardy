@@ -7,7 +7,8 @@ export const Container = styled.div`
   background-color: #010c93;
   margin-bottom: 10px;
 `;
-export const Text = styled.div`
+
+export const Text = styled.span`
   width: 100%;
   text-transform: uppercase;
   text-align: center;

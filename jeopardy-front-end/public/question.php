@@ -22,7 +22,7 @@ if (!isset($_ENV['GOOGLE_API_KEY']) || $_ENV['GOOGLE_API_KEY'] == '') {
 }
 
 $source = new Sources\GoogleSheets($_ENV['GOOGLE_API_KEY'], $_GET['gameId']);
-$response = array('answer' => $source->getAnswer($_GET['category'], $_GET['value']));
+$response = $source->getAnswer($_GET['category'], $_GET['value']);
 
 header('Content-Type: application/json; charset=utf-8');
 echo json_encode($response);

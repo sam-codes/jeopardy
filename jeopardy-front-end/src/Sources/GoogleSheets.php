@@ -44,25 +44,30 @@ class GoogleSheets
      *
      * @param string $category
      * @param string $value
-     * @return string|NULL
+     * @return array
      */
-    public function getAnswer(string $category, string $value): ?string
+    public function getAnswer(string $category, string $value): array
     {
         $service = new \Google_Service_Sheets($this->getClient());
 
-        $range = $this->sheetId . '!A2:C';
+        $range = $this->sheetId . '!A2:D';
         $response = $service->spreadsheets_values->get($this->spreadsheetId, $range);
         $entries = $response->getValues();
-        $answer = null;
+
+        $result = [
+            'answer' => null,
+            'dailyDouble' => false,
+        ];
 
         foreach ($entries as $entry) {
             if ($entry[0] == $value && $entry[1] == $category) {
-                $answer = $entry[2];
+                $result['answer'] = $entry[2];
+                $result['dailyDouble'] = (strtoupper($entry[3]) == 'Y');
                 break;
             }
         }
 
-        return $answer;
+        return $result;
     }
 
     /**

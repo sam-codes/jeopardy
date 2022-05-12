@@ -3,6 +3,12 @@ LABEL project jeopardy
 
 # Composer install
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+# Node Setup
+COPY --from=node:latest /usr/local/lib/node_modules /usr/local/lib/node_modules
+COPY --from=node:latest /usr/local/bin/node /usr/local/bin/node
+RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
+
+RUN a2enmod rewrite
 
 RUN apt-get update && apt-get install -y \
 	git \
@@ -11,9 +17,12 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /var/www
 
 COPY jeopardy-front-end ./
-RUN rm -r /var/www/html && ln -sF /var/www/jeopardy-front-end/public /var/www/html
-
 RUN composer install
+
+RUN npm ci
+RUN npm run-script build
+
+RUN rm -r /var/www/html && ln -sF /var/www/jeopardy-front-end/build /var/www/html
 
 WORKDIR /var/www/jeopardy-front-end
 
