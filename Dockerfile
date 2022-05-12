@@ -19,7 +19,7 @@ WORKDIR /var/www
 COPY jeopardy-front-end ./
 RUN composer install
 
-RUN npm ci
+RUN npm install
 RUN npm run-script build
 
 RUN rm -r /var/www/html && ln -sF /var/www/jeopardy-front-end/build /var/www/html
