@@ -10,5 +10,5 @@ export const Question = ({ question = "unknown question", onClose }) => (
 
 Question.propTypes = {
   question: PropTypes.string,
-  onClose: PropTypes.bool,
+  onClose: PropTypes.func,
 };

@@ -7,15 +7,20 @@ export const PriceCell = ({ price = "unknown" }) => {
   const [visited, setVisited] = useState(false);
   const [showQuestion, setShowQuestion] = useState(false);
 
-  const handleClick = () => {
+  const handleOpenQuestion = () => {
     setVisited(true);
     setShowQuestion(true);
   };
 
+  const handleClose = (e) => {
+    e.stopPropagation();
+    setShowQuestion(false);
+  };
+
   return (
-    <div className="price" onClick={handleClick}>
+    <div className="price" onClick={handleOpenQuestion}>
       {!visited && <span className="price-text">{price}</span>}
-      {showQuestion && <Question onClose={() => setShowQuestion(false)} />}
+      {showQuestion && <Question onClose={handleClose} />}
     </div>
   );
 };
