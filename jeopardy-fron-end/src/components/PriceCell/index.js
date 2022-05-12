@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 export const PriceCell = ({ price = "unknown", onOpenQuestion }) => {
   const [visited, setVisited] = useState(false);
@@ -16,4 +17,9 @@ export const PriceCell = ({ price = "unknown", onOpenQuestion }) => {
       {price}
     </div>
   );
+};
+
+PriceCell.propTypes = {
+  price: PropTypes.string,
+  onOpenQuestion: PropTypes.bool,
 };
