@@ -1,0 +1,13 @@
+version: '3'
+volumes:
+  datavolume:
+services:
+  app:
+    build:
+      context: .
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    volumes:
+      - ./jeopardy-front-end:/var/www/jeopardy-front-end
+    ports:
+      - "80:80"

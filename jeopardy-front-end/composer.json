@@ -1,0 +1,11 @@
+{
+    "name": "sam-codes/jeopardy",
+    "autoload": {
+        "psr-4": {
+            "SamCodes\\Jeopardy\\": "src/"
+        }
+    },
+    "require": {
+        "google/apiclient": "^2.0"
+    }
+}
