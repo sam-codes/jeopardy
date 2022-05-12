@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { Container, Text } from "./PriceCell.styled";
 import { Question } from "../Question";
-import "./price.css";
 
-export const PriceCell = ({ price = "unknown" }) => {
+export const PriceCell = ({ price = "unknown", question = "unkown question" }) => {
   const [visited, setVisited] = useState(false);
   const [showQuestion, setShowQuestion] = useState(false);
 
@@ -18,14 +18,14 @@ export const PriceCell = ({ price = "unknown" }) => {
   };
 
   return (
-    <div className="price" onClick={handleOpenQuestion}>
-      {!visited && <span className="price-text">{price}</span>}
-      {showQuestion && <Question onClose={handleClose} />}
-    </div>
+    <Container onClick={handleOpenQuestion}>
+      {!visited && <Text className="price-text">{price}</Text>}
+      {showQuestion && <Question question={question} onClose={handleClose} />}
+    </Container>
   );
 };
 
 PriceCell.propTypes = {
   price: PropTypes.string,
-  onOpenQuestion: PropTypes.bool,
+  question: PropTypes.string,
 };

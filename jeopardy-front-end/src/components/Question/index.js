@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./question.css";
+import { Container, Text } from "./Question.styled";
 
-export const Question = ({ question = "unknown question", onClose }) => (
-  <div className="question" onClick={onClose}>
-    <span className="question-text">{question}</span>
-  </div>
+export const Question = ({ question, onClose }) => (
+  <Container onClick={onClose}>
+    <Text className="question-text">{question}</Text>
+  </Container>
 );
 
 Question.propTypes = {
