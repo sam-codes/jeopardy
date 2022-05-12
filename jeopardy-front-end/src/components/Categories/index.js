@@ -6,7 +6,7 @@ export const Categories = ({ categories = [] }) => {
   if (!categories?.length) return null;
 
   return categories.map((category, index) => (
-    <CategoryCell key={index} name={category} />
+    <CategoryCell key={index} category={category} />
   ));
 };
 

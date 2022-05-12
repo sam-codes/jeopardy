@@ -1,21 +1,23 @@
 import React from "react";
-import { PriceCell } from "../PriceCell";
+// import { PriceCell } from "../PriceCell";
+
 import { Wrapper } from "./Board.styled";
 import { Categories } from "../Categories";
+import { Prices } from "../Prices";
 
 const Board = () => {
   const categories = [
-    "Category A",
-    "Category B",
-    "Category C",
-    "Category D",
-    "Category E",
+    "Category 1",
+    "Category 2",
+    "Category 3",
+    "Category 4",
+    "Category 5",
+    "Category 6",
   ];
   return (
     <Wrapper columns={categories.length}>
       <Categories categories={categories} />
-      <PriceCell />
-      {/* <Prices /> */}
+      <Prices categories={categories} />
     </Wrapper>
   );
 };

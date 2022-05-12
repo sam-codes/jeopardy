@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  padding: 1rem;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-auto-rows: minmax(200px, auto);
-  grid-gap: 0.5rem;
+  grid-template-columns: repeat(6, calc((100vw - (5px * 5)) / 6));
+  grid-auto-rows: minmax(calc((100vh - (5px * 5)) / 6), auto);
+  grid-gap: 5px;
 `;

@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   background-color: #010c93;
+  cursor: pointer;
 }
 .price-text {
   text-shadow: 1px 2px 1px rgba(0, 0, 0, 1);
