@@ -5,6 +5,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #010c93;
+  cursor: pointer;
 `;
 
 export const Text = styled.span`
