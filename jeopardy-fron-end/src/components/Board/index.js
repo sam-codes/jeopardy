@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { CategoryCell } from "../CategoryCell";
 import { PriceCell } from "../PriceCell";
-import { Question } from "../Question";
 
 const Board = () => {
-  const [showQuestion, setShowQuestion] = useState(false);
-
   return (
     <div>
-      <PriceCell onOpenQuestion={() => setShowQuestion(true)} />
-      {showQuestion && <Question onClose={() => setShowQuestion(false)} />}
+      <CategoryCell />
+      <PriceCell />
     </div>
   );
 };
