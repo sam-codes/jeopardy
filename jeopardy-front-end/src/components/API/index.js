@@ -27,6 +27,6 @@ export const getAnswer = async (gameId, value, category) => {
   )
     .then((res) => res.json())
     .then((json) => {
-      return json.categories;
+      return json;
     });
 };
