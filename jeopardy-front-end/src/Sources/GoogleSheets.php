@@ -62,7 +62,7 @@ class GoogleSheets
         foreach ($entries as $entry) {
             if ($entry[0] == $value && $entry[1] == $category) {
                 $result['answer'] = $entry[2];
-                $result['dailyDouble'] = (strtoupper($entry[3]) == 'Y');
+                $result['dailyDouble'] = (isset($entry[3]) && strtoupper($entry[3]) == 'Y');
                 break;
             }
         }
