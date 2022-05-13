@@ -1,5 +1,5 @@
 export const getCategories = async (gameId) => {
-  return fetch(`http://localhost/categories?gameId=${gameId}`, {
+  return fetch(`/categories?gameId=${gameId}`, {
     method: "GET",
     headers: {
       "access-control-allow-origin": "*",
@@ -14,7 +14,7 @@ export const getCategories = async (gameId) => {
 
 export const getAnswer = async (gameId, value, category) => {
   return fetch(
-    `http://localhost/question?gameId=${gameId}&value=${value}&category=${category}`,
+    `/question?gameId=${gameId}&value=${value}&category=${category}`,
     {
       method: "GET",
       headers: {
