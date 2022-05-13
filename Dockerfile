@@ -22,7 +22,7 @@ RUN composer install
 RUN npm install
 RUN npm run-script build
 
-RUN rm -r /var/www/html && ln -sF /var/www/jeopardy-front-end/build /var/www/html
+RUN rm -r /var/www/html && ln -sF /var/www/build /var/www/html
 
 WORKDIR /var/www/jeopardy-front-end
 

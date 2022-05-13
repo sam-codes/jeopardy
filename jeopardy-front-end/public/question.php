@@ -25,7 +25,6 @@ $source = new Sources\GoogleSheets($_ENV['GOOGLE_API_KEY'], $_GET['gameId']);
 $response = $source->getAnswer($_GET['category'], $_GET['value']);
 
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: GET");
 header('Content-Type: application/json; charset=utf-8');
 echo json_encode($response);
 
