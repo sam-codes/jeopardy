@@ -8,7 +8,7 @@ COPY --from=node:latest /usr/local/lib/node_modules /usr/local/lib/node_modules
 COPY --from=node:latest /usr/local/bin/node /usr/local/bin/node
 RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 
-RUN a2enmod rewrite
+RUN a2enmod rewrite headers
 
 RUN apt-get update && apt-get install -y \
 	git \

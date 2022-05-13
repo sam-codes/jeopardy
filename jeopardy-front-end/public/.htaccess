@@ -1,5 +1,8 @@
 Options -MultiViews
 
+Header add Access-Control-Allow-Origin "*"
+Header add Access-Control-Allow-Headers "*"
+
 RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-f
